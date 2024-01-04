@@ -91,3 +91,40 @@ let averageChange = 0;
 let greatestIncrease = { month: '', amount: Number.MIN_SAFE_INTEGER };
 let greatestDecrease = { month: '', amount: Number.MAX_SAFE_INTEGER };
 let totalChange = 0;
+// Calculate total and find greatest increase/decrease
+for (let i = 0; i < dataset.length; i++) {
+  const amount = dataset[i][1];
+  total += amount;
+
+  if (i > 0) {
+    const change = amount - dataset[i - 1][1];
+    totalChange += change;
+
+    if (change > greatestIncrease.amount) {
+      greatestIncrease.amount = change;
+      greatestIncrease.month = dataset[i][0];
+    }
+    if (change < greatestDecrease.amount) {
+      greatestDecrease.amount = change;
+      greatestDecrease.month = dataset[i][0];
+    }
+  }
+}
+
+averageChange = totalChange / (totalMonths - 1);
+
+console.log("Financial Analysis");
+console.log("----------------------------");
+console.log("Total Months:", totalMonths);
+console.log("Total: $" + total);
+console.log("Average Change: $" + averageChange.toFixed(2));
+console.log(
+  "Greatest Increase in Profits/Losses:",
+  greatestIncrease.month,
+  "($" + greatestIncrease.amount + ")"
+);
+console.log(
+  "Greatest Decrease in Profits/Losses:",
+  greatestDecrease.month,
+  "($" + greatestDecrease.amount + ")"
+);
