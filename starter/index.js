@@ -86,3 +86,29 @@ var finances = [
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
 ];
+const dataset = [
+  ['Jan-2010', 867884],
+  ['Feb-2010', 984655],
+  // ... rest of the data
+  ['Feb-2017', 671099]
+];
+
+// Calculate total number of months
+const totalMonths = dataset.length;
+
+// Calculate net total amount of Profit/Losses
+let netTotal = 0;
+for (let i = 0; i < dataset.length; i++) {
+  netTotal += dataset[i][1];
+}
+
+// Calculate the total change and average change in Profit/Losses
+let totalChange = 0;
+for (let i = 1; i < dataset.length; i++) {
+  totalChange += dataset[i][1] - dataset[i - 1][1];
+}
+const averageChange = totalChange / (totalMonths - 1);
+
+console.log("Total number of months:", totalMonths);
+console.log("Net total amount of Profit/Losses:", netTotal);
+console.log("Average of the changes in Profit/Losses:", averageChange);
