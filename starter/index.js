@@ -113,18 +113,3 @@ for (let i = 0; i < dataset.length; i++) {
 
 averageChange = totalChange / (totalMonths - 1);
 
-console.log("Financial Analysis");
-console.log("----------------------------");
-console.log("Total Months:", totalMonths);
-console.log("Total: $" + total);
-console.log("Average Change: $" + averageChange.toFixed(2));
-console.log(
-  "Greatest Increase in Profits/Losses:",
-  greatestIncrease.month,
-  "($" + greatestIncrease.amount + ")"
-);
-console.log(
-  "Greatest Decrease in Profits/Losses:",
-  greatestDecrease.month,
-  "($" + greatestDecrease.amount + ")"
-);
