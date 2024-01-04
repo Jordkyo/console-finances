@@ -85,4 +85,9 @@ const dataset = [
   ['Dec-2016', 60988],
   ['Jan-2017', 138230],
   ['Feb-2017', 671099],
-];
+];let totalMonths = dataset.length;
+let total = 0;
+let averageChange = 0;
+let greatestIncrease = { month: '', amount: Number.MIN_SAFE_INTEGER };
+let greatestDecrease = { month: '', amount: Number.MAX_SAFE_INTEGER };
+let totalChange = 0;
